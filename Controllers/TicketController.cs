@@ -29,8 +29,54 @@ public class TicketController : Controller
         {
             _db.Tickets.Add(task);
             _db.SaveChanges();
+            return RedirectToAction("Index");
         }
-        return View("Index");
+        return View();
     }
     
+    public IActionResult Edit(int id)
+    {
+        if (id == 0)
+        {
+            return NotFound();
+        }
+
+        Ticket taskFromDb = _db.Tickets.Find(id);
+        if(taskFromDb == null)
+        {
+            return NotFound();
+        }
+        return View(taskFromDb);
+    }
+    
+    [HttpPost]
+    public IActionResult Edit(Ticket task)
+    {
+        if (ModelState.IsValid)
+        {
+            _db.Tickets.Update(task);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return View();
+    }
+    
+
+    public IActionResult Delete(int id)
+    {
+        if (id == 0)
+        {
+            return NotFound();
+        }
+
+        Ticket taskFromDb = _db.Tickets.Find(id);
+        if(taskFromDb == null)
+        {
+            return NotFound();
+        }
+        _db.Tickets.Remove(taskFromDb);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+
 }

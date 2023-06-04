@@ -35,8 +35,10 @@
         <th>
             Assigned To
         </th>
+        <th>
+            
+        </th>
     </tr>
-    
     </thead>
     <tbody>
     @foreach (var task in Model)
@@ -61,6 +63,15 @@
             
             <td>
                 @task.TaskAssignedUserId
+            </td>
+            <td>
+                <div class="w-75 btn-group" role="group">
+                    <a asp-controller="Ticket" asp-action="Edit" asp-route-id="@task.TaskId" class="btn btn-primary mx-2" >Edit </a>
+                </div>
+                <div class="w-75 btn-group" role="group">
+                    <a asp-controller="Ticket" asp-action="Delete" asp-route-id="@task.TaskId" class="btn btn-danger mx-2" >Delete</a>
+                </div>
+                
             </td>
         </tr>
     }

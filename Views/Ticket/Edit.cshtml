@@ -1,12 +1,12 @@
 @model Ticket
 
-
 <form method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">Create New Task</h2>
+            <h2 class="text-primary">Edit The Task</h2>
             <hr/>
         </div>
+        <input asp-for="TaskId" hidden="hidden"/>
         <div class="mb-3 p-1 row">
             <label asp-for="TaskName" class="p-0"></label>
             <input asp-for="TaskName" type="text" class="form-control"/>
@@ -40,7 +40,7 @@
         
         <div class="row">
             <div class="col-6 col-md-3">
-                <button type="submit" class="btn btn-primary form-control">Create</button>
+                <button type="submit" class="btn btn-primary form-control">Update</button>
             </div>
             <div class="col-6 col-md-3">
                 <a asp-controller="Ticket" asp-action="Index" class="btn btn-secondary form-control" >Back to List</a>
