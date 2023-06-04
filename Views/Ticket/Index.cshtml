@@ -1,0 +1,68 @@
+@model IEnumerable<Ticket>
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Task List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Ticket" asp-action="Create" class="btn btn-primary">
+                Create New Task
+            </a>
+        </div>
+    </div>
+    
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>
+            Task Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+            Priority
+        </th>
+        <th>
+            Assigned To
+        </th>
+    </tr>
+    
+    </thead>
+    <tbody>
+    @foreach (var task in Model)
+    {
+        <tr>
+            <td>
+                @task.TaskName
+            </td>
+            <td>
+                @task.TaskDescription
+            </td>
+            <td>
+                @task.TaskStatusId
+            </td>
+            
+            <td>
+                @task.TaskType
+            </td>
+            <td>
+                @task.TaskPriority
+            </td>
+            
+            <td>
+                @task.TaskAssignedUserId
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
