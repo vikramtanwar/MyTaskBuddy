@@ -24,4 +24,8 @@
       <AdditionalFiles Include="Views\Calender\Index.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages" />
+    </ItemGroup>
+
 </Project>
